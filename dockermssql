@@ -1,0 +1,25 @@
+#Step 1: Download the SQL Server Image
+#Run the following command in the terminal window to download the image for SQL Server 2019:
+sudo docker pull mcr.microsoft.com/mssql/server:2019-latest
+
+#Step 2: Launch the SQL Server Image in Docker
+To launch the image you downloaded in Docker, use:
+docker run -d --name example_sql_server -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Strong.Pwd-123' -p 1433:1433 mcr.microsoft.com/mssql/server:2019-latest
+
+#Step 3: Check the SQL Server Docker Container
+Check the status of the SQL Server Docker container with:
+docker ps -a
+
+#Step 4: Install SQL Server Command-Line Tool
+Use the following command to install sql-cli:
+sudo npm install -g sql-cli
+
+Step 5: Connect to SQL Server
+Connect to SQL Server by using the mssql command in the terminal window:
+mssql -u sa -p Strong.Pwd-123
+
+#.help in CLI for usage hints.
+# container name example_sql_server
+# container pw Strong.Pwd-123
+# port used 1433:1433
+# To stop docker 
